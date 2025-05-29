@@ -11,5 +11,7 @@ spec:
   ports:
   - port: 80
     targetPort: 9501
+    nodePort: 9501
+    protocol: TCP
 
   type: LoadBalancer
