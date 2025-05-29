@@ -10,6 +10,6 @@ spec:
     
   ports:
   - port: 80
-    targetPort: 8082
+    targetPort: 9001
 
   type: LoadBalancer
