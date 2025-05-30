@@ -15,7 +15,7 @@ spec:
           tag: latest
   destination:
     server: https://kubernetes.default.svc
-    namespace: registration
+    namespace: default
   syncPolicy:
     automated:
       prune: true
