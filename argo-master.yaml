@@ -7,6 +7,7 @@ spec:
   source:
     repoURL: 'https://github.com/SpeedKillsx/registration-app-aws.git'
     targetRevision: main
+    path: applications/registration-app-deployment
   destination:
     namespace: default
   project: default
