@@ -1,0 +1,17 @@
+apiVersion: v1
+kin: Application
+metadata:
+  name: bootstrap
+  namespace: argocd
+spec:
+  source:
+    repoURL: 'https://github.com/SpeedKillsx/registration-app-aws.git'
+    targetRevision: main
+  destination:
+    namespace: default
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+

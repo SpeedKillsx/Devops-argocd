@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: registration-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/SpeedKillsx/registration-app-aws
+    targetRevision: main
+    path: helm-chart
+    helm:
+      values: |
+        image:
+          tag: latest
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: registration
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
