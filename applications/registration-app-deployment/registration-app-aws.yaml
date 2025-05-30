@@ -10,9 +10,8 @@ spec:
     targetRevision: main
     path: helm-chart
     helm:
-      values: |
-        image:
-          tag: latest
+      values:
+        - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: default
