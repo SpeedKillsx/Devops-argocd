@@ -17,15 +17,20 @@ spec:
     spec:
       project: default
       source:
-        repoURL: 'https://github.com/SpeedKillsx/Devops-argocd.git'
-        targetRevision: main
-        path: 'applications/{{path[1]}}'
-        helm:
-          valueFiles:
-            - $values/applications/{{path[1]}}/values.yaml
-      destination:
-        server: https://kubernetes.default.svc
-        namespace: '{{path[1]}}'
+        - repoURL: 'https://github.com/SpeedKillsx/{{path[1]}}.git'
+          targetRevision: main
+          path: 'applications/{{path[1]}}'
+          helm:
+            releaseName: '{{path[1]}}'
+            valueFiles:
+              - $values/applications/{{path[1]}}/values.yaml
+        - repoURL: 'https://github.com/SpeedKillsx/Devops-argocd.git'
+          targetRevision: main
+          ref: 
+            - values
+        destination:
+          server: https://kubernetes.default.svc
+          namespace: '{{path[1]}}'
       syncPolicy:
         automated:
           prune: true

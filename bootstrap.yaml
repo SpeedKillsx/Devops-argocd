@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/SpeedKillsx/Devops-argocd.git
-    path: "resources/prd/"
+    path: "resources/prd/applications-set"
     targetRevision: main
   destination:
     server: https://kubernetes.default.svc
