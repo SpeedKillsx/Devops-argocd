@@ -9,7 +9,7 @@ spec:
         repoURL: 'https://github.com/SpeedKillsx/Devops-argocd.git'
         revision: main
         directories:
-          - path: 'applications/*/*'
+          - path: 'applications/*'
             recurse: true
     template:
       metadata:
@@ -19,10 +19,10 @@ spec:
         source:
           repoURL: 'https://github.com/SpeedKillsx/Devops-argocd.git'
             targetRevision: main
-            path: "{{path[0]}}/{{path[1]}}"
+            path: "applications/{{path[1]}}"
             helm:
               valueFiles:
-                - values.yaml
+                - $values/applications/{{path[1]}}/values.yaml
         destination:
           server: https://kubernetes.default.svc
           namespace: '{{path[1]}}'

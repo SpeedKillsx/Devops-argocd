@@ -7,8 +7,8 @@ spec:
   project: default
   source:
     repoURL: https://github.com/SpeedKillsx/Devops-argocd.git
+    path: "resources/applications-set"
     targetRevision: main
-    path: "resources"
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
