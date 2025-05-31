@@ -19,11 +19,11 @@ spec:
       sources:
         - repoURL: 'https://github.com/SpeedKillsx/{{path[1]}}.git'
           targetRevision: main
-          path: 'applications/{{path[1]}}'
+          path: helm-chart
           helm:
             releaseName: '{{path[1]}}'
             valueFiles:
-              - $values/applications/{{path[1]}}/values.yaml
+              - applications/{{path[1]}}/values.yaml
         - repoURL: 'https://github.com/SpeedKillsx/Devops-argocd.git'
           targetRevision: main
           ref: values
