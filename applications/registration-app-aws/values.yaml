@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: registration-app
+  name: registration-app-aws
   namespace: argocd
 spec:
   project: default
