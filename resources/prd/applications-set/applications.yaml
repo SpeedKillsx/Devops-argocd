@@ -16,14 +16,17 @@ spec:
       name: '{{path[1]}}'
     spec:
       project: default
-      source:
-          repoURL: 'https://github.com/SpeedKillsx/{{path[1]}}.git'
+      sources:
+        - repoURL: 'https://github.com/SpeedKillsx/{{path[1]}}.git'
           targetRevision: main
           path: helm-chart
           helm:
             releaseName: '{{path[1]}}'
             valueFiles:
               - applications/{{path[1]}}/values.yaml
+        - repoURL: 'https://github.com/SpeedKillsx/Devops-argocd.git'
+          targetRevision: main
+          ref: values
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{path[1]}}'
