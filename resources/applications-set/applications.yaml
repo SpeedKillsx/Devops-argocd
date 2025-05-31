@@ -11,23 +11,22 @@ spec:
         directories:
           - path: 'applications/*'
             recurse: true
-    template:
-      metadata:
-        name: '{{path[1]}}'
-      spec:
-        project: default
-        source:
-            repoURL: 'https://github.com/SpeedKillsx/Devops-argocd.git'
-            targetRevision: main
-            path: "applications/{{path[1]}}"
-            helm:
-              valueFiles:
-                - $values/applications/{{path[1]}}/values.yaml
-        destination:
-          server: https://kubernetes.default.svc
-          namespace: '{{path[1]}}'
-        syncPolicy:
-          automated:
-            prune: true
-            selfHeal: true
-            
+  template:
+    metadata:
+      name: '{{path[1]}}'
+    spec:
+      project: default
+      source:
+        repoURL: 'https://github.com/SpeedKillsx/Devops-argocd.git'
+        targetRevision: main
+        path: 'applications/{{path[1]}}'
+        helm:
+          valueFiles:
+            - $values/applications/{{path[1]}}/values.yaml
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{path[1]}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
