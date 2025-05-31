@@ -23,7 +23,7 @@ spec:
           helm:
             releaseName: '{{path[1]}}'
             valueFiles:
-              - applications/{{path[1]}}/values.yaml
+              - $values/applications/{{path[1]}}/values.yaml
         - repoURL: 'https://github.com/SpeedKillsx/Devops-argocd.git'
           targetRevision: main
           ref: values
