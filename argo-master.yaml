@@ -7,8 +7,9 @@ spec:
   source:
     repoURL: 'https://github.com/SpeedKillsx/registration-app-aws.git'
     targetRevision: main
-    path: applications/registration-app-deployment
+    path: applications
   destination:
+    name: in-cluster
     namespace: default
   project: default
   syncPolicy:
