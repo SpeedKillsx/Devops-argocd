@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+    namespace: registration-app-aws
+
+spec:
+    project: default
+    source:
+        repoURL: 'https://github.com/SpeedKillsx/Devops-argocd.git'
+        targetRevision: main
+        path: "namespaces/*"
+    destination:
+        name: 'in-cluster'
+        namespace: registration-app-aws
+    syncPolicy:
+        automated:
+            prune: true
+            selfHeal: true
+        syncOptions:
+            - CreateNamespace=true
