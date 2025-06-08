@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - applications-set/applications.yaml
-  - applications/registration-app-aws/registration-app-aws.yaml
+  - applications/registration-app-aws/values.yaml
+  - applications/Streamlit-Application-Deployment/values.yaml
   - namespaces/registration-app-aws.yaml
   - namespaces/argocd.yaml
